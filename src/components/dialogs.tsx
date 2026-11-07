@@ -179,7 +179,7 @@ export function ReportDialog({
 
 export function choiceClass(selected: boolean, disabled = false): string {
   return cn(
-    "flex min-h-11 cursor-pointer items-center justify-center rounded-xl border px-3 py-2 text-sm",
+    "flex min-h-11 min-w-0 cursor-pointer items-center justify-center rounded-xl border px-3 py-2 text-center text-sm",
     selected ? "border-primary bg-primary text-primary-foreground" : "border-border bg-card",
     disabled && "cursor-not-allowed opacity-50",
   );

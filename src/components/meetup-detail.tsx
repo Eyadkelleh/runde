@@ -102,7 +102,7 @@ export function MeetupDetail() {
   }
 
   return (
-    <article className="space-y-8">
+    <article className="min-w-0 max-w-full space-y-8">
       <header>
         <p className="text-sm text-muted-foreground">{locality?.label}</p>
         <h1 className="mt-2 font-serif text-4xl tracking-tight">{hobby?.label ?? "Treffen"}</h1>
@@ -132,14 +132,14 @@ export function MeetupDetail() {
         {joined ? (
           <ul className="mt-3 divide-y divide-border">
             {people.map((person) => (
-              <li key={person.id} className="flex min-h-11 items-center justify-between gap-3 py-2">
-                <span>
+              <li key={person.id} className="flex min-h-11 min-w-0 flex-wrap items-center justify-between gap-3 py-2">
+                <span className="min-w-0">
                   {person.displayName}
                   {person.id === actorId ? " (du)" : ""}
                   {person.id === item.organizerId ? " (veranstaltet)" : ""}
                 </span>
                 {person.id !== actorId ? (
-                  <Button type="button" variant="ghost" className="h-9 px-3" onClick={() => setBlockTarget(person)}>
+                  <Button type="button" variant="ghost" className="h-11 shrink-0 px-3" onClick={() => setBlockTarget(person)}>
                     Ausblenden
                   </Button>
                 ) : null}
@@ -152,6 +152,7 @@ export function MeetupDetail() {
             <Button
               type="button"
               variant="outline"
+              className="w-full"
               onClick={() =>
                 requireName(() =>
                   setBlockTarget({
@@ -172,22 +173,22 @@ export function MeetupDetail() {
         {status === "expired" ? <p>Vorbei.</p> : null}
         {status === "open" && !joined && placesLeft(item) === 0 ? <p>Voll.</p> : null}
         {status === "open" && !joined && placesLeft(item) > 0 ? (
-          <Button type="button" data-testid="join-button" onClick={() => requireName(() => join(id))}>
+          <Button type="button" className="w-full" data-testid="join-button" onClick={() => requireName(() => join(id))}>
             Ich komme
           </Button>
         ) : null}
         {status === "open" && joined && !organizer ? (
-          <Button type="button" variant="outline" onClick={() => leave(id)}>
+          <Button type="button" variant="outline" className="w-full" onClick={() => leave(id)}>
             Doch nicht
           </Button>
         ) : null}
         {organizer && status !== "cancelled" ? (
-          <Button type="button" variant="destructive" onClick={() => setCancelOpen(true)}>
+          <Button type="button" variant="destructive" className="w-full" onClick={() => setCancelOpen(true)}>
             Treffen absagen
           </Button>
         ) : null}
         {!organizer ? (
-          <Button type="button" variant="ghost" onClick={() => requireName(() => setReportOpen(true))}>
+          <Button type="button" variant="ghost" className="w-full" onClick={() => requireName(() => setReportOpen(true))}>
             Melden
           </Button>
         ) : null}

@@ -107,7 +107,7 @@ export function AppFrame({
             <main id="inhalt" tabIndex={-1} className="outline-none">
               {children}
             </main>
-            <p className="pt-6 text-xs text-muted-foreground">Speicher: nur dieser Browser</p>
+            <p className="pt-6 text-sm text-[#3a342c]">Speicher: nur dieser Browser</p>
           </div>
         </div>
       </div>

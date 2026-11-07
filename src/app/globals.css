@@ -128,6 +128,10 @@
   html {
     @apply font-sans;
   }
+  fieldset {
+    min-width: 0;
+    max-width: 100%;
+  }
   a:focus-visible,
   button:focus-visible,
   input:focus-visible,

@@ -85,7 +85,7 @@ function CreateFields({ localityId: initialLocality, nowIso }: { localityId: Loc
   }
 
   return (
-    <form noValidate onSubmit={onSubmit} className="space-y-8">
+    <form noValidate onSubmit={onSubmit} className="min-w-0 max-w-full space-y-8">
       <header className="space-y-2">
         <p className="font-serif text-3xl tracking-tight md:hidden">
           <Link href="/">Runde</Link>
@@ -166,7 +166,7 @@ function CreateFields({ localityId: initialLocality, nowIso }: { localityId: Loc
 
       <fieldset aria-describedby={error?.fields?.preset ? "zeit-error" : undefined}>
         <legend className="text-sm font-medium">Wann</legend>
-        <div className="mt-2 grid grid-cols-3 gap-2">
+        <div className="mt-2 grid w-full min-w-0 grid-cols-3 gap-2">
           {PRESET_OPTIONS.map((option) => {
             const resolved = resolvePreset(option, now);
             const disabled = !resolved.ok;
@@ -201,7 +201,7 @@ function CreateFields({ localityId: initialLocality, nowIso }: { localityId: Loc
 
       <fieldset>
         <legend className="text-sm font-medium">Plätze</legend>
-        <div className="mt-2 grid grid-cols-4 gap-2">
+        <div className="mt-2 grid w-full min-w-0 grid-cols-4 gap-2">
           {CAPACITIES.map((option) => (
             <label key={option} className={choiceClass(capacity === option)}>
               <input

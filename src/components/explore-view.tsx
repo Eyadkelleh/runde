@@ -41,7 +41,7 @@ export function ExploreView() {
   }
 
   return (
-    <div className="space-y-8">
+    <div className="min-w-0 max-w-full space-y-8">
       <header className="space-y-2">
         <p className="font-serif text-3xl tracking-tight md:hidden">
           <Link href="/">Runde</Link>
@@ -58,14 +58,14 @@ export function ExploreView() {
 
       <fieldset>
         <legend className="text-sm font-medium">Zeit</legend>
-        <div className="mt-2 grid grid-cols-4 gap-2">
+        <div className="mt-2 grid w-full grid-cols-4 gap-2">
           {WHEN_FILTERS.map((when) => {
             const selected = preferences.when === when;
             return (
               <label
                 key={when}
                 className={cn(
-                  "flex min-h-11 cursor-pointer items-center justify-center rounded-full border px-2 text-sm",
+                  "flex min-h-11 min-w-0 cursor-pointer items-center justify-center rounded-full border px-2 text-center text-sm",
                   selected ? "border-primary bg-primary text-primary-foreground" : "border-border bg-card",
                 )}
               >
@@ -84,9 +84,9 @@ export function ExploreView() {
         </div>
       </fieldset>
 
-      <fieldset>
+      <fieldset className="min-w-0 max-w-full">
         <legend className="text-sm font-medium">Tätigkeit</legend>
-        <div className="mt-2 flex gap-2 overflow-x-auto pb-1">
+        <div className="mt-2 flex w-full min-w-0 max-w-full flex-wrap gap-2">
           <HobbyChip
             name="entdecken-taetigkeit"
             label="Alle"
@@ -161,7 +161,7 @@ function HobbyChip({
   return (
     <label
       className={cn(
-        "flex min-h-11 shrink-0 cursor-pointer items-center rounded-full border px-4 text-sm",
+        "flex min-h-11 cursor-pointer items-center rounded-full border px-4 text-sm",
         checked ? "border-primary bg-primary text-primary-foreground" : "border-border bg-card",
       )}
     >
